@@ -35,3 +35,10 @@ steps:
     command: 'apply'
     environmentServiceNameAzureRM: 'Pay-As-You-Go(34fd30ca-7ebe-4f68-8559-42510e203682)'
   displayName: 'terraform apply'
+  
+- task: TerraformTaskV3@3
+  inputs:
+    provider: 'azurerm'
+    command: 'destory'
+    environmentServiceNameAzureRM: 'Pay-As-You-Go(34fd30ca-7ebe-4f68-8559-42510e203682)'
+  displayName: 'terraform destory' 
