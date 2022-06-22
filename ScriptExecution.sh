@@ -11,5 +11,3 @@ systemctl daemon-reload
 service grafana-server start
 
 
-sudo apt-get install apache2 -y
-
