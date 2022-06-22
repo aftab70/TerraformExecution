@@ -12,5 +12,4 @@ service grafana-server start
 
 
 sudo apt-get install apache2 -y
-sudo apt-get install prometheus prometheus-node-exporter prometheus-pushgateway prometheus-alertmanager -y
 
