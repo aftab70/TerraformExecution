@@ -34,20 +34,6 @@ resource "azurerm_network_security_rule" "HTTPS" {
   network_security_group_name = azurerm_network_security_group.Apache_NSG.name
 }
 
-resource "azurerm_network_security_rule" "HTTP" {
-  name                        = "HTTP"
-  priority                    = 110
-  direction                   = "Inbound"
-  access                      = "Allow"
-  protocol                    = "*"
-  source_port_range           = "*"
-  destination_port_range      = "80"
-  source_address_prefix       = "*"
-  destination_address_prefix  = "*"
-  resource_group_name         = azurerm_resource_group.Resourse_Group.name
-  network_security_group_name = azurerm_network_security_group.Apache_NSG.name
-
-}
 
 resource "azurerm_network_security_rule" "Grafana" {
   name                        = "Grafana"
