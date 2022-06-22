@@ -1,0 +1,37 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- Azure_VM_Deployemnt_PASS_AUTH
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- task: TerraformTaskV3@3
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'Pay-As-You-Go(34fd30ca-7ebe-4f68-8559-42510e203682)'
+    backendAzureRmResourceGroupName: 'AzureDevopsWithTerraform'
+    backendAzureRmStorageAccountName: 'terraformeastus'
+    backendAzureRmContainerName: 'statefile'
+    backendAzureRmKey: 'tfstate'
+  displayName: 'terrafrom init'
+
+- task: TerraformTaskV3@3
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    environmentServiceNameAzureRM: 'Pay-As-You-Go(34fd30ca-7ebe-4f68-8559-42510e203682)'
+  displayName: 'terrafrom plan'
+
+- task: TerraformTaskV3@3
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    environmentServiceNameAzureRM: 'Pay-As-You-Go(34fd30ca-7ebe-4f68-8559-42510e203682)'
+  displayName: 'terraform apply'
