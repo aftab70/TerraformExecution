@@ -161,7 +161,7 @@ resource "azurerm_virtual_machine" "WebApp" {
   location              = azurerm_resource_group.Resourse_Group.location
   resource_group_name   = azurerm_resource_group.Resourse_Group.name
   network_interface_ids = [azurerm_network_interface.WebApp-nic.id]
-  vm_size               = "Standard_B1ls"
+  vm_size               = "Standard_B1s"
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
    delete_os_disk_on_termination = true
