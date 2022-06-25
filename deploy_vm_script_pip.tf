@@ -66,7 +66,7 @@ resource "azurerm_network_security_rule" "SSH" {
 
 }
 
-resource "azurerm_network_security_rule" "SSH" {
+resource "azurerm_network_security_rule" "HTTP" {
   name                        = "HTTP"
   priority                    = 130
   direction                   = "Inbound"
