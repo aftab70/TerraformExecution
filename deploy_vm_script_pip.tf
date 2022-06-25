@@ -191,7 +191,7 @@ resource "azurerm_virtual_machine_extension" "ScriptExecution" {
 
   settings = <<SETTINGS
     {
-     "script": "${filebase64("ScriptExecution.sh")}"
+     "script": "${filebase64("docker.sh")}"
     }
 SETTINGS
 
