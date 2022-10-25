@@ -197,7 +197,7 @@ resource "azurerm_virtual_machine" "WebApp" {
 }
 
 
-/* resource "azurerm_virtual_machine_extension" "ScriptExecution" {
+resource "azurerm_virtual_machine_extension" "ScriptExecution" {
   name                 = "ScriptExecution"
   virtual_machine_id   = azurerm_virtual_machine.WebApp.id
   publisher            = "Microsoft.Azure.Extensions"
@@ -217,4 +217,3 @@ SETTINGS
     CreatedBy   = "Aftab"
   } 
 }
-*/
