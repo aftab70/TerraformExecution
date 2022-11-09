@@ -81,6 +81,20 @@ resource "azurerm_network_security_rule" "HTTP" {
 
 }
 
+resource "azurerm_network_security_rule" "Jenkins" {
+  name                        = "Jenkins"
+  priority                    = 140
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "*"
+  source_port_range           = "*"
+  destination_port_range      = "8080"
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  resource_group_name         = azurerm_resource_group.Resourse_Group.name
+  network_security_group_name = azurerm_network_security_group.Apache_NSG.name
+}
+
 
 
 
@@ -206,7 +220,7 @@ resource "azurerm_virtual_machine_extension" "ScriptExecution" {
 
   settings = <<SETTINGS
     {
-     "script": "${filebase64("docker.sh")}"
+     "script": "${filebase64("jenkins.sh")}"
     }
 SETTINGS
 
