@@ -37,6 +37,22 @@ resource "azurerm_network_security_rule" "Grafana" {
 
 }
 
+resource "azurerm_network_security_rule" "HTTPS" {
+  name                        = "HTTPS"
+  priority                    = 140
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "*"
+  source_port_range           = "*"
+  destination_port_range      = "443"
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+  resource_group_name         = azurerm_resource_group.Resourse_Group.name
+  network_security_group_name = azurerm_network_security_group.Apache_NSG.name
+
+}
+
+
 
 resource "azurerm_network_security_rule" "SSH" {
   name                        = "SSH"
@@ -70,7 +86,7 @@ resource "azurerm_network_security_rule" "HTTP" {
 
 resource "azurerm_network_security_rule" "Jenkins" {
   name                        = "Jenkins"
-  priority                    = 140
+  priority                    = 150
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "*"
