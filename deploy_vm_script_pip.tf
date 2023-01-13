@@ -214,23 +214,23 @@ resource "azurerm_virtual_machine" "WebApp" {
 }
 
 
-#resource "azurerm_virtual_machine_extension" "ScriptExecution" {
-#  name                 = "ScriptExecution"
-#  virtual_machine_id   = azurerm_virtual_machine.WebApp.id
-#  publisher            = "Microsoft.Azure.Extensions"
-#  type                 = "CustomScript"
-#  type_handler_version = "2.0"
+resource "azurerm_virtual_machine_extension" "ScriptExecution" {
+  name                 = "ScriptExecution"
+  virtual_machine_id   = azurerm_virtual_machine.WebApp.id
+  publisher            = "Microsoft.Azure.Extensions"
+  type                 = "CustomScript"
+  type_handler_version = "2.0"
 
-#  settings = <<SETTINGS
-#    {
-#     "script": "${filebase64("jenkins.sh")}"
-#    }
-#SETTINGS
+  settings = <<SETTINGS
+    {
+     "script": "${filebase64("docker.sh")}"
+    }
+SETTINGS
 
 
-#  tags = {
-#    environment = "Production",
-#    DeployedBy  = "Terraform",
-#    CreatedBy   = "Aftab"
-#  } 
-#}
+  tags = {
+    environment = "Production",
+    DeployedBy  = "Terraform",
+    CreatedBy   = "Aftab"
+  } 
+}
