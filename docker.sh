@@ -24,17 +24,6 @@ options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 
-driver.get('https://www.google.com/')
-time.sleep(2)
-driver.find_element(By.NAME, 'q').send_keys("Techbeginner.in")
-time.sleep(2)
-driver.find_element(By.XPATH, '/html/body/div[1]/div[3]/form/div[1]/div[1]/div[4]/center/input[1]').click()
-time.sleep(2)
-driver.find_element(By.XPATH, '/html/body/div[7]/div/div[11]/div/div[2]/div[2]/div/div/div[1]/div/div/div/div/div/div/div[1]/a/h3').click()
-print(driver.title)
-time.sleep(2)
-
-
 
 driver.get('https://gaming-maniya.blogspot.com/')
 print(driver.title)
